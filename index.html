@@ -3,46 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rudra Yadav | Student Athlete</title>
+<title>Hud Ansari | Student Athlete</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f4f4f4;color:#333}
-nav{background:#111;padding:15px;position:sticky;top:0}
-nav ul{list-style:none;display:flex;justify-content:center;gap:30px}
-nav a{color:white;text-decoration:none;font-weight:bold}
-.hero{height:90vh;background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1546519638-68e109498ffc');background-size:cover;background-position:center;display:flex;justify-content:center;align-items:center;text-align:center;color:white}
-.hero-content h1{font-size:4rem;margin-bottom:15px}
-.btn{display:inline-block;padding:12px 25px;background:#ff9800;color:white;text-decoration:none;border-radius:5px}
-section{padding:70px 10%}
-h2{text-align:center;margin-bottom:30px}
-.card-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-.card{background:white;width:300px;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
-footer{background:#111;color:white;text-align:center;padding:20px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f4f4;
+    color:#333;
+    line-height:1.6;
+}
+
+nav{
+    background:#111;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff9800;
+}
+
+.hero{
+    height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1400&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:1.3rem;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ff9800;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#e68900;
+}
+
+section{
+    padding:80px 10%;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#111;
+}
+
+.card-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:320px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.about{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    font-size:1.1rem;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    .hero-content h1{
+        font-size:2.8rem;
+    }
+
+    .hero-content p{
+        font-size:1rem;
+    }
+}
 </style>
 </head>
+
 <body>
+
+<!-- Navigation -->
 <nav>
 <ul>
 <li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
 <li><a href="#academics">Academics</a></li>
-<li><a href="#sports">Sports</a></li>
-<li><a href="#extracurriculars">Extracurriculars</a></li>
+<li><a href="#sports">Football</a></li>
 <li><a href="#achievements">Achievements</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
+
+<!-- Hero Section -->
 <section class="hero" id="home">
 <div class="hero-content">
-<h1>Rudra Yadav</h1>
-<p>Student Athlete | Basketball Player | Future Leader</p>
-<a href="#sports" class="btn">Explore My Journey</a>
+<h1>Hud Ansari</h1>
+<p>Student Athlete | Football Player | Aspiring Sports Management Professional</p>
+<a href="#about" class="btn">Explore My Journey</a>
 </div>
 </section>
-<section id="academics"><h2>Academics</h2></section>
-<section id="sports"><h2>Basketball</h2></section>
-<section id="extracurriculars"><h2>Extracurricular Activities</h2></section>
-<section id="achievements"><h2>Achievements</h2></section>
-<section id="contact"><h2>Contact</h2></section>
-<footer><p>© 2026 Rudra Yadav | Student Athlete Portfolio</p></footer>
+
+<!-- About -->
+<section id="about">
+<h2>About Me</h2>
+<div class="about">
+<p>
+Hello! I'm <strong>Hud Ansari</strong>, a passionate student-athlete with a deep love for football.
+My ambition is to pursue a career in <strong>Sports Management</strong> while continuing
+to grow as a football player. Through sports, I have developed discipline, teamwork,
+leadership, and resilience—qualities that I carry both on and off the field.
+I aim to combine my athletic experience with business and management skills to make a meaningful impact in the sports industry.
+</p>
+</div>
+</section>
+
+<!-- Academics -->
+<section id="academics">
+<h2>Academics</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Education</h3>
+<p>
+High school student focused on academic excellence while balancing athletic commitments.
+</p>
+</div>
+
+<div class="card">
+<h3>Areas of Interest</h3>
+<p>
+Sports Management, Business, Leadership, Marketing, and Athlete Development.
+</p>
+</div>
+
+<div class="card">
+<h3>Future Goal</h3>
+<p>
+To study Sports Management at university and contribute to the sports industry while staying involved in football.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- Football -->
+<section id="sports">
+<h2>Football</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Player Development</h3>
+<p>
+Dedicated to improving technical ability, tactical awareness, fitness, and overall performance.
+</p>
+</div>
+
+<div class="card">
+<h3>Teamwork</h3>
+<p>
+Committed to working with teammates, supporting team goals, and developing leadership skills.
+</p>
+</div>
+
+<div class="card">
+<h3>Mindset</h3>
+<p>
+Focused on continuous growth, discipline, and giving maximum effort both during training and competition.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- Achievements -->
+<section id="achievements">
+<h2>Achievements</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Football</h3>
+<p>
+Represented school and local football teams in competitive matches and tournaments.
+</p>
+</div>
+
+<div class="card">
+<h3>Leadership</h3>
+<p>
+Demonstrated responsibility, teamwork, and leadership through sports participation and school activities.
+</p>
+</div>
+
+<div class="card">
+<h3>Personal Growth</h3>
+<p>
+Built strong time-management skills by successfully balancing academics and athletics.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<h2>Contact</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>Get In Touch</h3>
+<p>Email: your-email@example.com</p>
+<p>Instagram: @yourusername</p>
+<p>Location: Maharashtra, India</p>
+</div>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<p>© 2026 Hud Ansari | Student Athlete Portfolio</p>
+</footer>
+
 </body>
 </html>
