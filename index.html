@@ -1,1221 +1,963 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hud Ansari | Student Athlete</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #f6ead7;
+    color: #35131d;
+    line-height: 1.7;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* =========================
+   ACCESSIBLE FOCUS STYLES
+========================= */
+
+a:focus-visible {
+    outline: 3px solid #e2c579;
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #541c2b;
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #f7ead8;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 28px 0;
+    transition: 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 17px;
+    width: 0;
+    height: 2px;
+    background: #e2c579;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e2c579;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 8% 70px;
+    display: flex;
+    align-items: center;
+    background: #f6ead7;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    padding-left: 20px;
+}
+
+.portfolio-label {
+    color: #8b1937;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(4rem, 7vw, 6.3rem);
+    line-height: 0.95;
+    font-weight: 500;
+    color: #35131d;
+    margin-bottom: 30px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: #8b1937;
+    font-style: italic;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #66565a;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 600px;
+    font-size: 1rem;
+    color: #756568;
+    line-height: 1.8;
+    margin-bottom: 38px;
+}
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    display: inline-block;
+    min-width: 160px;
+    padding: 14px 25px;
+
+    text-align: center;
+    text-decoration: none;
 
-    <title>Hud Ansari | Student Athlete</title>
+    border: 1px solid #8b1937;
+    color: #8b1937;
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    font-size: 16px;
+    font-weight: 500;
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-        rel="stylesheet"
-    >
+    transition: 0.3s ease;
+}
 
-    <style>
+.hero-btn.primary {
+    background: #8b1937;
+    color: #ffffff;
+}
 
-        /* =========================
-           GENERAL
-        ========================= */
+.hero-btn:hover {
+    transform: translateY(-3px);
+    background: #6f142c;
+    color: #ffffff;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+.hero-btn.secondary {
+    border-color: #8b1937;
+    color: #35131d;
+}
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
+.hero-btn.secondary:hover {
+    background: #35131d;
+    color: #ffffff;
+}
 
-        body {
-            font-family: "DM Sans", sans-serif;
-            background: #f6ead7;
-            color: #35131d;
-            line-height: 1.7;
-        }
 
-        .container {
-            width: 85%;
-            max-width: 1100px;
-            margin: auto;
-        }
+/* =========================
+   HERO PHOTO
+========================= */
 
+.hero-photo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-        /* =========================
-           ACCESSIBILITY
-        ========================= */
+.hero-photo-wrapper::before {
+    content: "";
 
-        a:focus-visible {
-            outline: 3px solid #e2c579;
-            outline-offset: 5px;
-            border-radius: 3px;
-        }
+    position: absolute;
 
+    width: 420px;
+    height: 420px;
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+    border-radius: 50%;
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
+    border: 1px solid rgba(139, 25, 55, 0.15);
 
-            width: 100%;
+    z-index: 0;
+}
 
-            z-index: 1000;
+.hero-photo {
+    position: relative;
+    z-index: 1;
 
-            background: #541c2b;
-        }
+    width: 390px;
+    height: 390px;
 
-        .navbar {
-            min-height: 78px;
+    border-radius: 50%;
 
-            display: flex;
+    object-fit: cover;
+    object-position: center 30%;
 
-            align-items: center;
-            justify-content: center;
+    border: 6px solid #e2c579;
 
-            padding: 0 5%;
-        }
+    background: #eeeeee;
 
-        .nav-links {
-            list-style: none;
+    box-shadow: 0 20px 50px rgba(80, 45, 30, 0.15);
+}
 
-            display: flex;
 
-            align-items: center;
-            justify-content: center;
+/* =========================
+   SECTIONS
+========================= */
 
-            gap: 38px;
-        }
+.section {
+    padding: 100px 0;
+    background: #f6ead7;
+}
 
-        .nav-links a {
-            position: relative;
+.section:nth-of-type(even) {
+    background: #f0dfc5;
+}
 
-            display: inline-block;
+.section h2 {
+    text-align: center;
 
-            text-decoration: none;
+    font-family: "Playfair Display", serif;
 
-            color: #f7ead8;
+    font-size: 2.8rem;
+    font-weight: 500;
 
-            font-size: 15px;
+    color: #541c2b;
 
-            font-weight: 600;
+    margin-bottom: 45px;
+}
 
-            letter-spacing: 1.5px;
+.section h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
 
-            text-transform: uppercase;
+.section p {
+    color: #66565a;
+    margin-bottom: 20px;
+}
 
-            padding: 28px 0;
 
-            transition: 0.3s ease;
-        }
+/* =========================
+   ABOUT
+========================= */
 
-        .nav-links a::after {
-            content: "";
+#about .container {
+    max-width: 900px;
+}
 
-            position: absolute;
+#about p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
 
-            left: 0;
 
-            bottom: 17px;
+/* =========================
+   CARDS
+========================= */
 
-            width: 0;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-            height: 2px;
+.card {
+    background: rgba(255, 255, 255, 0.35);
 
-            background: #e2c579;
+    padding: 32px;
 
-            transition: 0.3s ease;
-        }
+    border-radius: 4px;
 
-        .nav-links a:hover {
-            color: #e2c579;
-        }
+    border: 1px solid #dcc8aa;
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+    transition: 0.3s ease;
+}
 
+.card:hover {
+    transform: translateY(-5px);
 
-        /* =========================
-           HOME / HERO
-        ========================= */
+    border-color: #b28a42;
 
-        .hero {
-            min-height: 100vh;
+    box-shadow: 0 12px 30px rgba(70, 40, 25, 0.08);
+}
 
-            padding: 120px 8% 70px;
+.card h3 {
+    color: #541c2b;
+}
 
-            display: flex;
+.card p {
+    margin-bottom: 0;
+}
 
-            align-items: center;
 
-            background: #f6ead7;
+/* =========================
+   CONTACT
+========================= */
 
-            position: relative;
+.contact {
+    text-align: center;
+}
 
-            overflow: hidden;
-        }
+.contact h3 {
+    margin-bottom: 25px;
+    color: #35131d;
+}
 
-        .hero-container {
-            width: 100%;
+.contact p {
+    margin: 8px 0;
+}
 
-            max-width: 1250px;
+.contact strong {
+    color: #541c2b;
+}
 
-            margin: 0 auto;
 
-            display: grid;
+/* =========================
+   FOOTER
+========================= */
 
-            grid-template-columns: 1.05fr 0.95fr;
+footer {
+    background: #541c2b;
 
-            align-items: center;
+    text-align: center;
 
-            gap: 60px;
-        }
+    padding: 25px;
 
+    color: #eadbc8;
 
-        /* =========================
-           HERO TEXT
-        ========================= */
+    font-size: 14px;
+}
 
-        .hero-content {
-            padding-left: 20px;
-        }
 
-        .portfolio-label {
-            color: #8b1937;
+/* =========================
+   TABLET
+========================= */
 
-            font-size: 15px;
+@media (max-width: 1000px) {
 
-            font-weight: 600;
+    .nav-links {
+        gap: 22px;
+    }
 
-            letter-spacing: 5px;
+    .hero {
+        padding: 120px 6% 70px;
+    }
 
-            margin-bottom: 28px;
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+    }
 
-            text-transform: uppercase;
-        }
+    .hero-content {
+        padding-left: 0;
+    }
 
-        .hero-content h1 {
-            font-family: "Playfair Display", serif;
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-            font-size: clamp(4rem, 7vw, 6.3rem);
+    .hero-buttons {
+        justify-content: center;
+    }
 
-            line-height: 0.95;
+    .hero-photo-wrapper {
+        order: -1;
+    }
 
-            font-weight: 500;
+    .hero-photo {
+        width: 300px;
+        height: 300px;
+    }
 
-            color: #35131d;
+    .hero-photo-wrapper::before {
+        width: 330px;
+        height: 330px;
+    }
 
-            margin-bottom: 30px;
-        }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
 
-        .hero-content h1 span {
-            display: block;
 
-            color: #8b1937;
+/* =========================
+   MOBILE
+========================= */
 
-            font-style: italic;
-        }
+@media (max-width: 700px) {
 
-        .hero-subtitle {
-            font-size: 1.2rem;
+    .navbar {
+        min-height: 75px;
+        padding: 15px;
+    }
 
-            color: #66565a;
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px 18px;
+    }
 
-            margin-bottom: 25px;
+    .nav-links a {
+        font-size: 11px;
+        letter-spacing: 1px;
+        padding: 5px 0;
+    }
 
-            font-weight: 500;
-        }
+    .nav-links a::after {
+        bottom: 0;
+    }
 
-        .hero-description {
-            max-width: 600px;
+    .hero {
+        padding: 125px 20px 70px;
+    }
 
-            font-size: 1rem;
+    .hero-container {
+        gap: 45px;
+    }
 
-            color: #756568;
+    .hero-content h1 {
+        font-size: 4rem;
+    }
 
-            line-height: 1.8;
+    .portfolio-label {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
 
-            margin-bottom: 38px;
-        }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 
+    .hero-description {
+        font-size: 0.95rem;
+    }
 
-        /* =========================
-           BUTTONS
-        ========================= */
+    .hero-photo {
+        width: 250px;
+        height: 250px;
+    }
 
-        .hero-buttons {
-            display: flex;
+    .hero-photo-wrapper::before {
+        width: 280px;
+        height: 280px;
+    }
 
-            gap: 20px;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
 
-            flex-wrap: wrap;
-        }
+    .hero-btn {
+        width: 210px;
+    }
 
-        .hero-btn {
-            display: inline-block;
+    .section {
+        padding: 75px 0;
+    }
 
-            min-width: 160px;
+    .section h2 {
+        font-size: 2.2rem;
+    }
+}
 
-            padding: 14px 25px;
 
-            text-align: center;
+/* =========================
+   SMALL MOBILE
+========================= */
 
-            text-decoration: none;
+@media (max-width: 450px) {
 
-            border: 1px solid #8b1937;
+    .nav-links {
+        gap: 8px 12px;
+    }
 
-            color: #8b1937;
+    .nav-links a {
+        font-size: 9px;
+    }
 
-            font-size: 16px;
+    .hero-content h1 {
+        font-size: 3.4rem;
+    }
 
-            font-weight: 500;
+    .hero-photo {
+        width: 220px;
+        height: 220px;
+    }
 
-            transition: 0.3s ease;
-        }
+    .hero-photo-wrapper::before {
+        width: 245px;
+        height: 245px;
+    }
+}
 
-        .hero-btn.primary {
-            background: #8b1937;
-
-            color: #ffffff;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-
-            background: #6f142c;
-
-            color: #ffffff;
-        }
-
-        .hero-btn.secondary {
-            border-color: #8b1937;
-
-            color: #35131d;
-        }
-
-        .hero-btn.secondary:hover {
-            background: #35131d;
-
-            color: #ffffff;
-        }
-
-
-        /* =========================
-           PROFILE PHOTO
-           ORIGINAL PHOTO ONLY
-        ========================= */
-
-        .hero-photo-wrapper {
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            position: relative;
-        }
-
-
-        /* Decorative circle behind photo */
-
-        .hero-photo-wrapper::before {
-            content: "";
-
-            position: absolute;
-
-            width: 420px;
-
-            height: 420px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(139, 25, 55, 0.15);
-
-            z-index: 0;
-        }
-
-
-        /*
-           IMPORTANT:
-
-           This uses the ORIGINAL photo you uploaded.
-
-           File:
-           hud-photo.jpeg
-
-           CSS only crops it into a circle.
-           The face itself is NOT changed.
-        */
-
-        .hero-photo {
-            position: relative;
-
-            z-index: 1;
-
-            width: 390px;
-
-            height: 390px;
-
-            border-radius: 50%;
-
-            object-fit: cover;
-
-            /*
-               Keeps the face positioned naturally
-               while cropping the rectangular photo
-               into the circle.
-            */
-
-            object-position: center 30%;
-
-            border: 6px solid #e2c579;
-
-            background: #eeeeee;
-
-            box-shadow:
-                0 20px 50px rgba(80, 45, 30, 0.15);
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        .section {
-            padding: 100px 0;
-
-            background: #f6ead7;
-        }
-
-        .section:nth-of-type(even) {
-            background: #f0dfc5;
-        }
-
-        .section h2 {
-            text-align: center;
-
-            font-family: "Playfair Display", serif;
-
-            font-size: 2.8rem;
-
-            font-weight: 500;
-
-            color: #541c2b;
-
-            margin-bottom: 45px;
-        }
-
-        .section h3 {
-            margin-bottom: 15px;
-
-            font-size: 1.3rem;
-        }
-
-        .section p {
-            color: #66565a;
-
-            margin-bottom: 20px;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        #about .container {
-            max-width: 900px;
-        }
-
-        #about p {
-            font-size: 1.05rem;
-
-            line-height: 1.9;
-        }
-
-
-        /* =========================
-           CARDS
-        ========================= */
-
-        .cards {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.35);
-
-            padding: 32px;
-
-            border-radius: 4px;
-
-            border: 1px solid #dcc8aa;
-
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-
-            border-color: #b28a42;
-
-            box-shadow:
-                0 12px 30px rgba(70, 40, 25, 0.08);
-        }
-
-        .card h3 {
-            color: #541c2b;
-        }
-
-        .card p {
-            margin-bottom: 0;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact h3 {
-            margin-bottom: 25px;
-
-            color: #35131d;
-        }
-
-        .contact p {
-            margin: 8px 0;
-        }
-
-        .contact strong {
-            color: #541c2b;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #541c2b;
-
-            text-align: center;
-
-            padding: 25px;
-
-            color: #eadbc8;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           TABLET
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .nav-links {
-                gap: 22px;
-            }
-
-            .hero {
-                padding: 120px 6% 70px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-
-                text-align: center;
-
-                gap: 50px;
-            }
-
-            .hero-content {
-                padding-left: 0;
-            }
-
-            .hero-description {
-                margin-left: auto;
-
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-photo-wrapper {
-                order: -1;
-            }
-
-            .hero-photo {
-                width: 300px;
-
-                height: 300px;
-            }
-
-            .hero-photo-wrapper::before {
-                width: 330px;
-
-                height: 330px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .navbar {
-                min-height: 75px;
-
-                padding: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-
-                gap: 10px 18px;
-            }
-
-            .nav-links a {
-                font-size: 11px;
-
-                letter-spacing: 1px;
-
-                padding: 5px 0;
-            }
-
-            .nav-links a::after {
-                bottom: 0;
-            }
-
-            .hero {
-                padding: 125px 20px 70px;
-            }
-
-            .hero-container {
-                gap: 45px;
-            }
-
-            .hero-content h1 {
-                font-size: 4rem;
-            }
-
-            .portfolio-label {
-                font-size: 12px;
-
-                letter-spacing: 4px;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-description {
-                font-size: 0.95rem;
-            }
-
-            .hero-photo {
-                width: 250px;
-
-                height: 250px;
-            }
-
-            .hero-photo-wrapper::before {
-                width: 280px;
-
-                height: 280px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-
-                align-items: center;
-
-                gap: 12px;
-            }
-
-            .hero-btn {
-                width: 210px;
-            }
-
-            .section {
-                padding: 75px 0;
-            }
-
-            .section h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-
-        /* =========================
-           SMALL MOBILE
-        ========================= */
-
-        @media (max-width: 450px) {
-
-            .nav-links {
-                gap: 8px 12px;
-            }
-
-            .nav-links a {
-                font-size: 9px;
-            }
-
-            .hero-content h1 {
-                font-size: 3.4rem;
-            }
-
-            .hero-photo {
-                width: 220px;
-
-                height: 220px;
-            }
-
-            .hero-photo-wrapper::before {
-                width: 245px;
-
-                height: 245px;
-            }
-        }
-
-    </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-    <header>
+<header>
 
-        <nav
-            class="navbar"
-            aria-label="Main navigation"
-        >
+<nav class="navbar" aria-label="Main navigation">
 
-            <ul class="nav-links">
+<ul class="nav-links">
 
-                <li>
-                    <a href="#home">
-                        Home
-                    </a>
-                </li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
+<li>
+<a href="#about">About</a>
+</li>
 
-                <li>
-                    <a href="#academics">
-                        Academics
-                    </a>
-                </li>
+<li>
+<a href="#academics">Academics</a>
+</li>
 
-                <li>
-                    <a href="#football">
-                        Football
-                    </a>
-                </li>
+<li>
+<a href="#football">Football</a>
+</li>
 
-                <li>
-                    <a href="#achievements">
-                        Achievements
-                    </a>
-                </li>
+<li>
+<a href="#achievements">Achievements</a>
+</li>
 
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
+<li>
+<a href="#contact">Contact</a>
+</li>
 
-            </ul>
+</ul>
 
-        </nav>
+</nav>
 
-    </header>
+</header>
 
 
-    <!-- =========================
-         MAIN
-    ========================= -->
+<main>
 
-    <main>
 
+<!-- =========================
+     HOME / HERO
+========================= -->
 
-        <!-- =========================
-             HOME
-        ========================= -->
+<section id="home" class="hero">
 
-        <section
-            id="home"
-            class="hero"
-        >
+<div class="hero-container">
 
-            <div class="hero-container">
 
+<div class="hero-content">
 
-                <!-- LEFT SIDE -->
+<div class="portfolio-label">
+Portfolio
+</div>
 
-                <div class="hero-content">
 
-                    <div class="portfolio-label">
-                        Portfolio
-                    </div>
+<h1>
+Hud
+<span>Ansari</span>
+</h1>
 
 
-                    <h1>
+<p class="hero-subtitle">
+Football Enthusiast | Aspiring Sports Management Professional
+</p>
 
-                        Hud
 
-                        <span>
-                            Ansari
-                        </span>
+<p class="hero-description">
+Passionate about football, the sports industry, and building a future where sport and business come together.
+</p>
 
-                    </h1>
 
+<div class="hero-buttons">
 
-                    <p class="hero-subtitle">
+<a href="#about" class="hero-btn primary">
+Explore My Journey
+</a>
 
-                        Football Enthusiast |
-                        Aspiring Sports Management Professional
+<a href="#about" class="hero-btn secondary">
+About Me
+</a>
 
-                    </p>
+<a href="#contact" class="hero-btn">
+Contact Me
+</a>
 
+</div>
 
-                    <p class="hero-description">
+</div>
 
-                        Passionate about football, the sports industry,
-                        and building a future where sport and business
-                        come together.
 
-                    </p>
+<!-- Original photo -->
+<div class="hero-photo-wrapper">
 
+<img
+    src="hud-photo.jpeg"
+    alt="Hud Ansari"
+    class="hero-photo"
+>
 
-                    <div class="hero-buttons">
+</div>
 
-                        <a
-                            href="#about"
-                            class="hero-btn primary"
-                        >
-                            Explore My Journey
-                        </a>
 
+</div>
 
-                        <a
-                            href="#about"
-                            class="hero-btn secondary"
-                        >
-                            About Me
-                        </a>
+</section>
 
 
-                        <a
-                            href="#contact"
-                            class="hero-btn"
-                        >
-                            Contact Me
-                        </a>
+<!-- =========================
+     ABOUT
+========================= -->
 
-                    </div>
+<section id="about" class="section">
 
-                </div>
+<div class="container">
 
+<h2>
+About Me
+</h2>
 
-                <!-- RIGHT SIDE / ORIGINAL PHOTO -->
 
-                <div class="hero-photo-wrapper">
+<p>
+Hi, I’m Hud Ansari, a passionate student-athlete with a deep love for football and a strong interest in the sports industry. My ambition is to pursue a career in Sports Management while continuing to develop as a football player. Through years of playing football, I have developed discipline, teamwork, leadership, resilience, and the ability to perform under pressure. These experiences have shaped me both on and off the field.
+</p>
 
-                    <img
-                        src="hud-photo.jpeg"
-                        alt="Hud Ansari"
-                        class="hero-photo"
-                    >
 
-                </div>
+<p>
+I aim to combine my experience as an athlete with business and management skills to build a meaningful career and contribute to the growth of the sports industry.
+</p>
 
-            </div>
+</div>
 
-        </section>
+</section>
 
 
-        <!-- =========================
-             ABOUT
-        ========================= -->
+<!-- =========================
+     ACADEMICS
+========================= -->
 
-        <section
-            id="about"
-            class="section"
-        >
+<section id="academics" class="section">
 
-            <div class="container">
+<div class="container">
 
-                <h2>
-                    About Me
-                </h2>
+<h2>
+Academics
+</h2>
 
-                <p>
 
-                    Hi, I’m Hud Ansari, a passionate student-athlete
-                    with a deep love for football and a strong interest
-                    in the sports industry. My ambition is to pursue a
-                    career in Sports Management while continuing to
-                    develop as a football player.
+<div class="cards">
 
-                    Through years of playing football, I have developed
-                    discipline, teamwork, leadership, resilience, and
-                    the ability to perform under pressure.
 
-                    These experiences have shaped me both on and off
-                    the field.
+<div class="card">
 
-                    I aim to combine my experience as an athlete with
-                    business and management skills to build a meaningful
-                    career and contribute to the growth of the sports
-                    industry.
+<h3>
+Education
+</h3>
 
-                </p>
+<p>
+High school student focused on academic excellence while balancing athletic commitments.
+</p>
 
-            </div>
+</div>
 
-        </section>
 
+<div class="card">
 
-        <!-- =========================
-             ACADEMICS
-        ========================= -->
+<h3>
+Areas of Interest
+</h3>
 
-        <section
-            id="academics"
-            class="section"
-        >
+<p>
+Sports Management, Business, Leadership, Marketing, and Athlete Development.
+</p>
 
-            <div class="container">
+</div>
 
-                <h2>
-                    Academics
-                </h2>
 
+<div class="card">
 
-                <div class="cards">
+<h3>
+Future Goal
+</h3>
 
+<p>
+To study Sports Management at university and contribute to the sports industry while staying involved in football.
+</p>
 
-                    <div class="card">
+</div>
 
-                        <h3>
-                            Education
-                        </h3>
 
-                        <p>
+</div>
 
-                            High school student focused on academic
-                            excellence while balancing athletic
-                            commitments.
+</div>
 
-                        </p>
+</section>
 
-                    </div>
 
+<!-- =========================
+     FOOTBALL
+========================= -->
 
-                    <div class="card">
+<section id="football" class="section">
 
-                        <h3>
-                            Areas of Interest
-                        </h3>
+<div class="container">
 
-                        <p>
+<h2>
+Football
+</h2>
 
-                            Sports Management, Business, Leadership,
-                            Marketing, and Athlete Development.
 
-                        </p>
+<div class="cards">
 
-                    </div>
 
+<div class="card">
 
-                    <div class="card">
+<h3>
+Player Development
+</h3>
 
-                        <h3>
-                            Future Goal
-                        </h3>
+<p>
+Dedicated to improving technical ability, tactical awareness, fitness, and overall performance.
+</p>
 
-                        <p>
+</div>
 
-                            To study Sports Management at university
-                            and contribute to the sports industry
-                            while staying involved in football.
 
-                        </p>
+<div class="card">
 
-                    </div>
+<h3>
+Teamwork
+</h3>
 
+<p>
+Committed to working with teammates, supporting team goals, and developing leadership skills.
+</p>
 
-                </div>
+</div>
 
-            </div>
 
-        </section>
+<div class="card">
 
+<h3>
+Mindset
+</h3>
 
-        <!-- =========================
-             FOOTBALL
-        ========================= -->
+<p>
+Focused on continuous growth, discipline, and giving maximum effort both during training and competition.
+</p>
 
-        <section
-            id="football"
-            class="section"
-        >
+</div>
 
-            <div class="container">
 
-                <h2>
-                    Football
-                </h2>
+</div>
 
+</div>
 
-                <div class="cards">
+</section>
 
 
-                    <div class="card">
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
 
-                        <h3>
-                            Player Development
-                        </h3>
+<section id="achievements" class="section">
 
-                        <p>
+<div class="container">
 
-                            Dedicated to improving technical ability,
-                            tactical awareness, fitness, and overall
-                            performance.
+<h2>
+Achievements
+</h2>
 
-                        </p>
 
-                    </div>
+<div class="cards">
 
 
-                    <div class="card">
+<div class="card">
 
-                        <h3>
-                            Teamwork
-                        </h3>
+<h3>
+Football
+</h3>
 
-                        <p>
+<p>
+Represented school and local football teams in competitive matches and tournaments.
+</p>
 
-                            Committed to working with teammates,
-                            supporting team goals, and developing
-                            leadership skills.
+</div>
 
-                        </p>
 
-                    </div>
+<div class="card">
 
+<h3>
+Leadership
+</h3>
 
-                    <div class="card">
+<p>
+Demonstrated responsibility, teamwork, and leadership through sports participation and school activities.
+</p>
 
-                        <h3>
-                            Mindset
-                        </h3>
+</div>
 
-                        <p>
 
-                            Focused on continuous growth, discipline,
-                            and giving maximum effort both during
-                            training and competition.
+<div class="card">
 
-                        </p>
+<h3>
+Personal Growth
+</h3>
 
-                    </div>
+<p>
+Built strong time-management skills by successfully balancing academics and athletics.
+</p>
 
+</div>
 
-                </div>
 
-            </div>
+</div>
 
-        </section>
+</div>
 
+</section>
 
-        <!-- =========================
-             ACHIEVEMENTS
-        ========================= -->
 
-        <section
-            id="achievements"
-            class="section"
-        >
+<!-- =========================
+     CONTACT
+========================= -->
 
-            <div class="container">
+<section id="contact" class="section contact">
 
-                <h2>
-                    Achievements
-                </h2>
+<div class="container">
 
+<h2>
+Contact
+</h2>
 
-                <div class="cards">
 
+<h3>
+Get In Touch
+</h3>
 
-                    <div class="card">
 
-                        <h3>
-                            Football
-                        </h3>
+<p>
+<strong>Email:</strong>
+hud.ansari@corvuss.in
+</p>
 
-                        <p>
 
-                            Represented school and local football
-                            teams in competitive matches and
-                            tournaments.
+<p>
+<strong>Phone:</strong>
++91 9372942495
+</p>
 
-                        </p>
 
-                    </div>
+<p>
+<strong>Location:</strong>
+Maharashtra, India
+</p>
 
+</div>
 
-                    <div class="card">
+</section>
 
-                        <h3>
-                            Leadership
-                        </h3>
 
-                        <p>
+</main>
 
-                            Demonstrated responsibility, teamwork,
-                            and leadership through sports
-                            participation and school activities.
 
-                        </p>
+<!-- =========================
+     FOOTER
+========================= -->
 
-                    </div>
+<footer>
 
+<p>
+© 2026 Hud Ansari | Student Athlete Portfolio
+</p>
 
-                    <div class="card">
-
-                        <h3>
-                            Personal Growth
-                        </h3>
-
-                        <p>
-
-                            Built strong time-management skills by
-                            successfully balancing academics and
-                            athletics.
-
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================= -->
-
-        <section
-            id="contact"
-            class="section contact"
-        >
-
-            <div class="container">
-
-                <h2>
-                    Contact
-                </h2>
-
-
-                <h3>
-                    Get In Touch
-                </h3>
-
-
-                <p>
-
-                    <strong>
-                        Email:
-                    </strong>
-
-                    your-email@example.com
-
-                </p>
-
-
-                <p>
-
-                    <strong>
-                        Instagram:
-                    </strong>
-
-                    @yourusername
-
-                </p>
-
-
-                <p>
-
-                    <strong>
-                        Location:
-                    </strong>
-
-                    Maharashtra, India
-
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <p>
-            © 2026 Hud Ansari | Student Athlete Portfolio
-        </p>
-
-    </footer>
+</footer>
 
 
 </body>
-
 </html>
