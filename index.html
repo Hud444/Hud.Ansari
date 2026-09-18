@@ -115,11 +115,12 @@
         }
 
         /* =========================
-           HOME / HERO
+           HOME
         ========================= */
 
         .hero {
             min-height: 100vh;
+
             padding: 120px 8% 70px;
 
             display: flex;
@@ -134,14 +135,21 @@
         .hero-container {
             width: 100%;
             max-width: 1250px;
+
             margin: 0 auto;
 
             display: grid;
+
             grid-template-columns: 1.05fr 0.95fr;
+
             align-items: center;
 
-            gap: 60px;
+            gap: 70px;
         }
+
+        /* =========================
+           HERO TEXT
+        ========================= */
 
         .hero-content {
             padding-left: 20px;
@@ -149,10 +157,15 @@
 
         .portfolio-label {
             color: #8b1937;
+
             font-size: 15px;
+
             font-weight: 600;
+
             letter-spacing: 5px;
+
             margin-bottom: 28px;
+
             text-transform: uppercase;
         }
 
@@ -162,6 +175,7 @@
             font-size: clamp(4rem, 7vw, 6.3rem);
 
             line-height: 0.95;
+
             font-weight: 500;
 
             color: #35131d;
@@ -179,6 +193,7 @@
 
         .hero-subtitle {
             font-size: 1.2rem;
+
             color: #66565a;
 
             margin-bottom: 25px;
@@ -190,6 +205,7 @@
             max-width: 600px;
 
             font-size: 1rem;
+
             color: #756568;
 
             line-height: 1.8;
@@ -198,12 +214,14 @@
         }
 
         /* =========================
-           HERO BUTTONS
+           BUTTONS
         ========================= */
 
         .hero-buttons {
             display: flex;
+
             gap: 20px;
+
             flex-wrap: wrap;
         }
 
@@ -215,6 +233,7 @@
             padding: 14px 25px;
 
             text-align: center;
+
             text-decoration: none;
 
             border: 1px solid #8b1937;
@@ -222,6 +241,7 @@
             color: #8b1937;
 
             font-size: 16px;
+
             font-weight: 500;
 
             transition: 0.3s ease;
@@ -229,46 +249,56 @@
 
         .hero-btn.primary {
             background: #8b1937;
-            color: #ffffff;
+
+            color: white;
         }
 
         .hero-btn:hover {
             transform: translateY(-3px);
 
             background: #6f142c;
-            color: #ffffff;
+
+            color: white;
         }
 
         .hero-btn.secondary {
-            border-color: #8b1937;
             color: #35131d;
+
+            border-color: #8b1937;
         }
 
         .hero-btn.secondary:hover {
             background: #35131d;
-            color: #ffffff;
+
+            color: white;
         }
 
         /* =========================
-           PROFILE PHOTO
+           PHOTO
         ========================= */
 
         .hero-photo-wrapper {
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             position: relative;
         }
+
+        /*
+        Decorative gold circle behind the photo
+        */
 
         .hero-photo-wrapper::before {
             content: "";
 
             position: absolute;
 
-            width: 410px;
-            height: 410px;
+            width: 470px;
+
+            height: 470px;
 
             border-radius: 50%;
 
@@ -277,16 +307,27 @@
             z-index: 0;
         }
 
+        /*
+        YOUR PHOTO
+
+        Filename:
+        hud-photo.jpeg
+        */
+
         .hero-photo {
             position: relative;
+
             z-index: 1;
 
-            width: 390px;
-            height: 390px;
+            width: 330px;
 
-            border-radius: 50%;
+            height: 470px;
 
             object-fit: cover;
+
+            object-position: center top;
+
+            border-radius: 165px 165px 20px 20px;
 
             border: 6px solid #e2c579;
 
@@ -302,6 +343,7 @@
 
         .section {
             padding: 100px 0;
+
             background: #f6ead7;
         }
 
@@ -315,6 +357,7 @@
             font-family: "Playfair Display", serif;
 
             font-size: 2.8rem;
+
             font-weight: 500;
 
             color: #541c2b;
@@ -324,11 +367,13 @@
 
         .section h3 {
             margin-bottom: 15px;
+
             font-size: 1.3rem;
         }
 
         .section p {
             color: #66565a;
+
             margin-bottom: 20px;
         }
 
@@ -342,6 +387,7 @@
 
         #about p {
             font-size: 1.05rem;
+
             line-height: 1.9;
         }
 
@@ -396,6 +442,7 @@
 
         .contact h3 {
             margin-bottom: 25px;
+
             color: #35131d;
         }
 
@@ -424,7 +471,7 @@
         }
 
         /* =========================
-           RESPONSIVE
+           TABLET
         ========================= */
 
         @media (max-width: 1000px) {
@@ -441,6 +488,8 @@
                 grid-template-columns: 1fr;
 
                 text-align: center;
+
+                gap: 50px;
             }
 
             .hero-content {
@@ -449,6 +498,7 @@
 
             .hero-description {
                 margin-left: auto;
+
                 margin-right: auto;
             }
 
@@ -461,13 +511,15 @@
             }
 
             .hero-photo {
-                width: 310px;
-                height: 310px;
+                width: 280px;
+
+                height: 400px;
             }
 
             .hero-photo-wrapper::before {
-                width: 330px;
-                height: 330px;
+                width: 410px;
+
+                height: 410px;
             }
 
             .cards {
@@ -475,21 +527,29 @@
             }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 700px) {
 
             .navbar {
                 min-height: 75px;
+
                 padding: 15px;
             }
 
             .nav-links {
                 flex-wrap: wrap;
+
                 gap: 10px 18px;
             }
 
             .nav-links a {
                 font-size: 11px;
+
                 letter-spacing: 1px;
+
                 padding: 5px 0;
             }
 
@@ -511,6 +571,7 @@
 
             .portfolio-label {
                 font-size: 12px;
+
                 letter-spacing: 4px;
             }
 
@@ -523,17 +584,20 @@
             }
 
             .hero-photo {
-                width: 250px;
-                height: 250px;
+                width: 230px;
+
+                height: 330px;
             }
 
             .hero-photo-wrapper::before {
-                width: 270px;
-                height: 270px;
+                width: 330px;
+
+                height: 330px;
             }
 
             .hero-buttons {
                 flex-direction: column;
+
                 align-items: center;
 
                 gap: 12px;
@@ -552,6 +616,10 @@
             }
         }
 
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
         @media (max-width: 450px) {
 
             .nav-links {
@@ -567,13 +635,15 @@
             }
 
             .hero-photo {
-                width: 220px;
-                height: 220px;
+                width: 205px;
+
+                height: 295px;
             }
 
             .hero-photo-wrapper::before {
-                width: 240px;
-                height: 240px;
+                width: 295px;
+
+                height: 295px;
             }
         }
 
@@ -590,32 +660,47 @@
 
     <header>
 
-        <nav class="navbar" aria-label="Main navigation">
+        <nav
+            class="navbar"
+            aria-label="Main navigation"
+        >
 
             <ul class="nav-links">
 
                 <li>
-                    <a href="#home">Home</a>
+                    <a href="#home">
+                        Home
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#about">About</a>
+                    <a href="#about">
+                        About
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#academics">Academics</a>
+                    <a href="#academics">
+                        Academics
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#football">Football</a>
+                    <a href="#football">
+                        Football
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#achievements">Achievements</a>
+                    <a href="#achievements">
+                        Achievements
+                    </a>
                 </li>
 
                 <li>
-                    <a href="#contact">Contact</a>
+                    <a href="#contact">
+                        Contact
+                    </a>
                 </li>
 
             </ul>
@@ -631,7 +716,10 @@
 
     <main>
 
-        <section id="home" class="hero">
+        <section
+            id="home"
+            class="hero"
+        >
 
             <div class="hero-container">
 
@@ -703,18 +791,12 @@
                 </div>
 
 
-                <!-- RIGHT SIDE / PHOTO -->
+                <!-- RIGHT SIDE PHOTO -->
 
                 <div class="hero-photo-wrapper">
 
-                    <!--
-                        IMPORTANT:
-                        Upload your photo to GitHub with this filename:
-                        hud-photo.jpg
-                    -->
-
                     <img
-                        src="hud-photo.jpg"
+                        src="hud-photo.jpeg"
                         alt="Hud Ansari"
                         class="hero-photo"
                     >
@@ -730,7 +812,10 @@
              ABOUT
         ========================= -->
 
-        <section id="about" class="section">
+        <section
+            id="about"
+            class="section"
+        >
 
             <div class="container">
 
@@ -769,14 +854,16 @@
              ACADEMICS
         ========================= -->
 
-        <section id="academics" class="section">
+        <section
+            id="academics"
+            class="section"
+        >
 
             <div class="container">
 
                 <h2>
                     Academics
                 </h2>
-
 
                 <div class="cards">
 
@@ -842,14 +929,16 @@
              FOOTBALL
         ========================= -->
 
-        <section id="football" class="section">
+        <section
+            id="football"
+            class="section"
+        >
 
             <div class="container">
 
                 <h2>
                     Football
                 </h2>
-
 
                 <div class="cards">
 
@@ -916,14 +1005,16 @@
              ACHIEVEMENTS
         ========================= -->
 
-        <section id="achievements" class="section">
+        <section
+            id="achievements"
+            class="section"
+        >
 
             <div class="container">
 
                 <h2>
                     Achievements
                 </h2>
-
 
                 <div class="cards">
 
@@ -990,7 +1081,10 @@
              CONTACT
         ========================= -->
 
-        <section id="contact" class="section contact">
+        <section
+            id="contact"
+            class="section contact"
+        >
 
             <div class="container">
 
@@ -998,11 +1092,9 @@
                     Contact
                 </h2>
 
-
                 <h3>
                     Get In Touch
                 </h3>
-
 
                 <p>
 
@@ -1014,7 +1106,6 @@
 
                 </p>
 
-
                 <p>
 
                     <strong>
@@ -1024,7 +1115,6 @@
                     @yourusername
 
                 </p>
-
 
                 <p>
 
