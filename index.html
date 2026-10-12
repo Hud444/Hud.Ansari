@@ -24,7 +24,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -78,7 +78,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 38px;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -86,9 +86,9 @@ header {
     display: inline-block;
     text-decoration: none;
     color: #f7ead8;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     padding: 28px 0;
     transition: 0.3s ease;
@@ -132,10 +132,8 @@ header {
     width: 100%;
     max-width: 1250px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
-
     align-items: center;
     gap: 60px;
 }
@@ -198,16 +196,12 @@ header {
     display: inline-block;
     min-width: 160px;
     padding: 14px 25px;
-
     text-align: center;
     text-decoration: none;
-
     border: 1px solid #8b1937;
     color: #8b1937;
-
     font-size: 16px;
     font-weight: 500;
-
     transition: 0.3s ease;
 }
 
@@ -234,7 +228,7 @@ header {
 
 
 /* =========================
-   HERO PHOTO
+   PROFILE PHOTO
 ========================= */
 
 .hero-photo-wrapper {
@@ -246,35 +240,24 @@ header {
 
 .hero-photo-wrapper::before {
     content: "";
-
     position: absolute;
-
     width: 420px;
     height: 420px;
-
     border-radius: 50%;
-
     border: 1px solid rgba(139, 25, 55, 0.15);
-
     z-index: 0;
 }
 
 .hero-photo {
     position: relative;
     z-index: 1;
-
     width: 390px;
     height: 390px;
-
     border-radius: 50%;
-
     object-fit: cover;
     object-position: center 30%;
-
     border: 6px solid #e2c579;
-
     background: #eeeeee;
-
     box-shadow: 0 20px 50px rgba(80, 45, 30, 0.15);
 }
 
@@ -294,14 +277,10 @@ header {
 
 .section h2 {
     text-align: center;
-
     font-family: "Playfair Display", serif;
-
     font-size: 2.8rem;
     font-weight: 500;
-
     color: #541c2b;
-
     margin-bottom: 45px;
 }
 
@@ -342,21 +321,15 @@ header {
 
 .card {
     background: rgba(255, 255, 255, 0.35);
-
     padding: 32px;
-
     border-radius: 4px;
-
     border: 1px solid #dcc8aa;
-
     transition: 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-
     border-color: #b28a42;
-
     box-shadow: 0 12px 30px rgba(70, 40, 25, 0.08);
 }
 
@@ -395,6 +368,19 @@ header {
 
 
 /* =========================
+   EXTRACURRICULARS
+========================= */
+
+#extracurriculars .cards {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#extracurriculars .card {
+    text-align: center;
+}
+
+
+/* =========================
    SKILLS
 ========================= */
 
@@ -419,17 +405,23 @@ header {
     text-align: center;
 }
 
-.contact h3 {
-    margin-bottom: 25px;
-    color: #35131d;
-}
-
 .contact p {
     margin: 8px 0;
 }
 
 .contact strong {
     color: #541c2b;
+}
+
+.contact a {
+    color: #66565a;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact a:hover {
+    color: #8b1937;
+    text-decoration: underline;
 }
 
 
@@ -439,13 +431,9 @@ header {
 
 footer {
     background: #541c2b;
-
     text-align: center;
-
     padding: 25px;
-
     color: #eadbc8;
-
     font-size: 14px;
 }
 
@@ -457,7 +445,11 @@ footer {
 @media (max-width: 1000px) {
 
     .nav-links {
-        gap: 22px;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
     }
 
     .hero {
@@ -497,11 +489,9 @@ footer {
         height: 330px;
     }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    #skills .cards {
+    .cards,
+    #skills .cards,
+    #extracurriculars .cards {
         grid-template-columns: 1fr;
     }
 }
@@ -515,17 +505,17 @@ footer {
 
     .navbar {
         min-height: 75px;
-        padding: 15px;
+        padding: 12px 15px;
     }
 
     .nav-links {
         flex-wrap: wrap;
-        gap: 10px 18px;
+        gap: 8px 15px;
     }
 
     .nav-links a {
-        font-size: 11px;
-        letter-spacing: 1px;
+        font-size: 10px;
+        letter-spacing: 0.7px;
         padding: 5px 0;
     }
 
@@ -599,7 +589,7 @@ footer {
 @media (max-width: 450px) {
 
     .nav-links {
-        gap: 8px 12px;
+        gap: 7px 10px;
     }
 
     .nav-links a {
@@ -624,123 +614,70 @@ footer {
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      NAVIGATION
 ========================= -->
 
 <header>
-
 <nav class="navbar" aria-label="Main navigation">
-
 <ul class="nav-links">
-
-<li>
-<a href="#home">Home</a>
-</li>
-
-<li>
-<a href="#about">About</a>
-</li>
-
-<li>
-<a href="#academics">Academics</a>
-</li>
-
-<li>
-<a href="#football">Football</a>
-</li>
-
-<li>
-<a href="#achievements">Achievements</a>
-</li>
-
-<li>
-<a href="#skills">Skills</a>
-</li>
-
-<li>
-<a href="#contact">Contact</a>
-</li>
-
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="#football">Football</a></li>
+    <li><a href="#extracurriculars">Extracurriculars</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
 </ul>
-
 </nav>
-
 </header>
 
-
 <main>
-
 
 <!-- =========================
      HOME / HERO
 ========================= -->
 
 <section id="home" class="hero">
-
 <div class="hero-container">
 
+    <div class="hero-content">
 
-<div class="hero-content">
+        <div class="portfolio-label">Portfolio</div>
 
-<div class="portfolio-label">
-Portfolio
-</div>
+        <h1>
+            Hud
+            <span>Ansari</span>
+        </h1>
 
+        <p class="hero-subtitle">
+            Football Enthusiast | Aspiring Sports Management Professional
+        </p>
 
-<h1>
-Hud
-<span>Ansari</span>
-</h1>
+        <p class="hero-description">
+            Passionate about football, the sports industry, and building a future where sport and business come together.
+        </p>
 
+        <div class="hero-buttons">
+            <a href="#about" class="hero-btn primary">Explore My Journey</a>
+            <a href="#about" class="hero-btn secondary">About Me</a>
+            <a href="#contact" class="hero-btn">Contact Me</a>
+        </div>
 
-<p class="hero-subtitle">
-Football Enthusiast | Aspiring Sports Management Professional
-</p>
+    </div>
 
-
-<p class="hero-description">
-Passionate about football, the sports industry, and building a future where sport and business come together.
-</p>
-
-
-<div class="hero-buttons">
-
-<a href="#about" class="hero-btn primary">
-Explore My Journey
-</a>
-
-<a href="#about" class="hero-btn secondary">
-About Me
-</a>
-
-<a href="#contact" class="hero-btn">
-Contact Me
-</a>
+    <!-- Original profile photo -->
+    <div class="hero-photo-wrapper">
+        <img
+            src="hud-photo.jpeg"
+            alt="Hud Ansari"
+            class="hero-photo"
+        >
+    </div>
 
 </div>
-
-</div>
-
-
-<!-- Original uploaded photo -->
-<div class="hero-photo-wrapper">
-
-<img
-    src="hud-photo.jpeg"
-    alt="Hud Ansari"
-    class="hero-photo"
->
-
-</div>
-
-
-</div>
-
 </section>
 
 
@@ -749,25 +686,19 @@ Contact Me
 ========================= -->
 
 <section id="about" class="section">
-
 <div class="container">
 
-<h2>
-About Me
-</h2>
+    <h2>About Me</h2>
 
+    <p>
+        Hi, I’m Hud Ansari, a passionate student-athlete with a deep love for football and a strong interest in the sports industry. My ambition is to pursue a career in Sports Management while continuing to develop as a football player. Through years of playing football, I have developed discipline, teamwork, leadership, resilience, and the ability to perform under pressure. These experiences have shaped me both on and off the field.
+    </p>
 
-<p>
-Hi, I’m Hud Ansari, a passionate student-athlete with a deep love for football and a strong interest in the sports industry. My ambition is to pursue a career in Sports Management while continuing to develop as a football player. Through years of playing football, I have developed discipline, teamwork, leadership, resilience, and the ability to perform under pressure. These experiences have shaped me both on and off the field.
-</p>
-
-
-<p>
-I aim to combine my experience as an athlete with business and management skills to build a meaningful career and contribute to the growth of the sports industry.
-</p>
+    <p>
+        I aim to combine my experience as an athlete with business and management skills to build a meaningful career and contribute to the growth of the sports industry.
+    </p>
 
 </div>
-
 </section>
 
 
@@ -776,60 +707,36 @@ I aim to combine my experience as an athlete with business and management skills
 ========================= -->
 
 <section id="academics" class="section">
-
 <div class="container">
 
-<h2>
-Academics
-</h2>
+    <h2>Academics</h2>
 
+    <div class="cards">
 
-<div class="cards">
+        <div class="card">
+            <h3>Education</h3>
+            <p>
+                High school student focused on academic excellence while balancing athletic commitments.
+            </p>
+        </div>
 
+        <div class="card">
+            <h3>Areas of Interest</h3>
+            <p>
+                Sports Management, Business, Leadership, Marketing, and Athlete Development.
+            </p>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <h3>Future Goal</h3>
+            <p>
+                To study Sports Management at university and contribute to the sports industry while staying involved in football.
+            </p>
+        </div>
 
-<h3>
-Education
-</h3>
-
-<p>
-High school student focused on academic excellence while balancing athletic commitments.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Areas of Interest
-</h3>
-
-<p>
-Sports Management, Business, Leadership, Marketing, and Athlete Development.
-</p>
+    </div>
 
 </div>
-
-
-<div class="card">
-
-<h3>
-Future Goal
-</h3>
-
-<p>
-To study Sports Management at university and contribute to the sports industry while staying involved in football.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
 </section>
 
 
@@ -838,96 +745,66 @@ To study Sports Management at university and contribute to the sports industry w
 ========================= -->
 
 <section id="football" class="section">
-
 <div class="container">
 
-<h2>
-Football
-</h2>
+    <h2>Football</h2>
 
+    <div class="football-content">
 
-<div class="football-content">
+        <p>
+            As a <strong>Centre Midfielder and Team Captain</strong>, I’ve led my team to multiple victories, combining leadership, strategy, and athletic skill. Football has taught me discipline, teamwork, and resilience.
+        </p>
 
-<p>
-As a <strong>Centre Midfielder and Team Captain</strong>, I’ve led my team to multiple victories, combining leadership, strategy, and athletic skill. Football has taught me discipline, teamwork, and resilience.
-</p>
+        <a
+            href="https://drive.google.com/file/d/1Jh0iSae_MagCKMUsKw3190d8x4LXTDig/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hero-btn primary highlights-btn"
+        >
+            Watch My Highlights
+        </a>
 
-
-<a
-    href="https://drive.google.com/file/d/1Jh0iSae_MagCKMUsKw3190d8x4LXTDig/view?usp=sharing"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="hero-btn primary highlights-btn"
->
-    Watch My Highlights
-</a>
+    </div>
 
 </div>
-
-</div>
-
 </section>
 
 
 <!-- =========================
-     ACHIEVEMENTS
+     EXTRACURRICULARS
 ========================= -->
 
-<section id="achievements" class="section">
-
+<section id="extracurriculars" class="section">
 <div class="container">
 
-<h2>
-Achievements
-</h2>
+    <h2>Extracurriculars</h2>
 
+    <div class="cards">
 
-<div class="cards">
+        <div class="card">
+            <h3>Leadership</h3>
+            <p>
+                Developing leadership and decision-making skills through team responsibilities and collaboration.
+            </p>
+        </div>
 
+        <div class="card">
+            <h3>Team Activities</h3>
+            <p>
+                Taking part in group activities that encourage communication, cooperation, and shared goals.
+            </p>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <h3>Personal Development</h3>
+            <p>
+                Building discipline, time management, and confidence while balancing academics and sports.
+            </p>
+        </div>
 
-<h3>
-Football
-</h3>
-
-<p>
-Represented school and local football teams in competitive matches and tournaments.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Leadership
-</h3>
-
-<p>
-Demonstrated responsibility, teamwork, and leadership through sports participation and school activities.
-</p>
+    </div>
 
 </div>
-
-
-<div class="card">
-
-<h3>
-Personal Growth
-</h3>
-
-<p>
-Built strong time-management skills by successfully balancing academics and athletics.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
 </section>
 
 
@@ -936,66 +813,35 @@ Built strong time-management skills by successfully balancing academics and athl
 ========================= -->
 
 <section id="skills" class="section">
-
 <div class="container">
 
-<h2>
-Skills
-</h2>
+    <h2>Skills</h2>
 
+    <div class="cards">
 
-<div class="cards">
+        <div class="card">
+            <h3>Analytical Thinking</h3>
+        </div>
 
+        <div class="card">
+            <h3>Leadership</h3>
+        </div>
 
-<div class="card">
+        <div class="card">
+            <h3>Teamwork</h3>
+        </div>
 
-<h3>
-Analytical Thinking
-</h3>
+        <div class="card">
+            <h3>Quick Computer Learning</h3>
+        </div>
 
-</div>
+        <div class="card">
+            <h3>Data Analysis</h3>
+        </div>
 
-
-<div class="card">
-
-<h3>
-Leadership
-</h3>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Teamwork
-</h3>
+    </div>
 
 </div>
-
-
-<div class="card">
-
-<h3>
-Quick Computer Learning
-</h3>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Data Analysis
-</h3>
-
-</div>
-
-
-</div>
-
-</div>
-
 </section>
 
 
@@ -1004,40 +850,27 @@ Data Analysis
 ========================= -->
 
 <section id="contact" class="section contact">
-
 <div class="container">
 
-<h2>
-Contact
-</h2>
+    <h2>Contact</h2>
 
+    <p>
+        <strong>Email:</strong>
+        <a href="mailto:hud.ansari@corvuss.in">hud.ansari@corvuss.in</a>
+    </p>
 
-<h3>
-Get In Touch
-</h3>
+    <p>
+        <strong>Phone:</strong>
+        <a href="tel:+919372942495">+91 9372942495</a>
+    </p>
 
-
-<p>
-<strong>Email:</strong>
-hud.ansari@corvuss.in
-</p>
-
-
-<p>
-<strong>Phone:</strong>
-+91 9372942495
-</p>
-
-
-<p>
-<strong>Location:</strong>
-Maharashtra, India
-</p>
+    <p>
+        <strong>Location:</strong>
+        Maharashtra, India
+    </p>
 
 </div>
-
 </section>
-
 
 </main>
 
@@ -1047,13 +880,8 @@ Maharashtra, India
 ========================= -->
 
 <footer>
-
-<p>
-© 2026 Hud Ansari | Student Athlete Portfolio
-</p>
-
+    <p>© 2026 Hud Ansari | Student Athlete Portfolio</p>
 </footer>
-
 
 </body>
 </html>
