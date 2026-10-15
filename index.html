@@ -1,887 +1,628 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Hud Ansari | Student Athlete</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================
-   GENERAL
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family: "DM Sans", sans-serif;
-    background: #f6ead7;
-    color: #35131d;
-    line-height: 1.7;
-}
-
-.container {
-    width: 85%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-
-/* =========================
-   ACCESSIBLE FOCUS STYLES
-========================= */
-
-a:focus-visible {
-    outline: 3px solid #e2c579;
-    outline-offset: 5px;
-    border-radius: 3px;
-}
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: #541c2b;
-}
-
-.navbar {
-    min-height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5%;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-}
-
-.nav-links a {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    color: #f7ead8;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    padding: 28px 0;
-    transition: 0.3s ease;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 17px;
-    width: 0;
-    height: 2px;
-    background: #e2c579;
-    transition: 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #e2c579;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-
-/* =========================
-   HERO SECTION
-========================= */
-
-.hero {
-    min-height: 100vh;
-    padding: 120px 8% 70px;
-    display: flex;
-    align-items: center;
-    background: #f6ead7;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-container {
-    width: 100%;
-    max-width: 1250px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: 60px;
-}
-
-.hero-content {
-    padding-left: 20px;
-}
-
-.portfolio-label {
-    color: #8b1937;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 5px;
-    margin-bottom: 28px;
-    text-transform: uppercase;
-}
-
-.hero-content h1 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(4rem, 7vw, 6.3rem);
-    line-height: 0.95;
-    font-weight: 500;
-    color: #35131d;
-    margin-bottom: 30px;
-}
-
-.hero-content h1 span {
-    display: block;
-    color: #8b1937;
-    font-style: italic;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    color: #66565a;
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-.hero-description {
-    max-width: 600px;
-    font-size: 1rem;
-    color: #756568;
-    line-height: 1.8;
-    margin-bottom: 38px;
-}
-
-
-/* =========================
-   HERO BUTTONS
-========================= */
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.hero-btn {
-    display: inline-block;
-    min-width: 160px;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid #8b1937;
-    color: #8b1937;
-    font-size: 16px;
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-.hero-btn.primary {
-    background: #8b1937;
-    color: #ffffff;
-}
-
-.hero-btn:hover {
-    transform: translateY(-3px);
-    background: #6f142c;
-    color: #ffffff;
-}
-
-.hero-btn.secondary {
-    border-color: #8b1937;
-    color: #35131d;
-}
-
-.hero-btn.secondary:hover {
-    background: #35131d;
-    color: #ffffff;
-}
-
-
-/* =========================
-   PROFILE PHOTO
-========================= */
-
-.hero-photo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.hero-photo-wrapper::before {
-    content: "";
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    border: 1px solid rgba(139, 25, 55, 0.15);
-    z-index: 0;
-}
-
-.hero-photo {
-    position: relative;
-    z-index: 1;
-    width: 390px;
-    height: 390px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 30%;
-    border: 6px solid #e2c579;
-    background: #eeeeee;
-    box-shadow: 0 20px 50px rgba(80, 45, 30, 0.15);
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section {
-    padding: 100px 0;
-    background: #f6ead7;
-}
-
-.section:nth-of-type(even) {
-    background: #f0dfc5;
-}
-
-.section h2 {
-    text-align: center;
-    font-family: "Playfair Display", serif;
-    font-size: 2.8rem;
-    font-weight: 500;
-    color: #541c2b;
-    margin-bottom: 45px;
-}
-
-.section h3 {
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.section p {
-    color: #66565a;
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-#about .container {
-    max-width: 900px;
-}
-
-#about p {
-    font-size: 1.05rem;
-    line-height: 1.9;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.35);
-    padding: 32px;
-    border-radius: 4px;
-    border: 1px solid #dcc8aa;
-    transition: 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #b28a42;
-    box-shadow: 0 12px 30px rgba(70, 40, 25, 0.08);
-}
-
-.card h3 {
-    color: #541c2b;
-}
-
-.card p {
-    margin-bottom: 0;
-}
-
-
-/* =========================
-   FOOTBALL
-========================= */
-
-.football-content {
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.football-content p {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    margin-bottom: 35px;
-}
-
-.football-content strong {
-    color: #541c2b;
-}
-
-.highlights-btn {
-    display: inline-block;
-}
-
-
-/* =========================
-   EXTRACURRICULARS
-========================= */
-
-#extracurriculars .cards {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-#extracurriculars .card {
-    text-align: center;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-#skills .cards {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-#skills .card {
-    text-align: center;
-}
-
-#skills .card h3 {
-    margin-bottom: 0;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    text-align: center;
-}
-
-.contact p {
-    margin: 8px 0;
-}
-
-.contact strong {
-    color: #541c2b;
-}
-
-.contact a {
-    color: #66565a;
-    text-decoration: none;
-    overflow-wrap: anywhere;
-}
-
-.contact a:hover {
-    color: #8b1937;
-    text-decoration: underline;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #541c2b;
-    text-align: center;
-    padding: 25px;
-    color: #eadbc8;
-    font-size: 14px;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
-
-    .nav-links {
-        gap: 18px;
-    }
-
-    .nav-links a {
-        font-size: 11px;
-    }
-
-    .hero {
-        padding: 120px 6% 70px;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 50px;
-    }
-
-    .hero-content {
-        padding-left: 0;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-photo-wrapper {
-        order: -1;
-    }
-
-    .hero-photo {
-        width: 300px;
-        height: 300px;
-    }
-
-    .hero-photo-wrapper::before {
-        width: 330px;
-        height: 330px;
-    }
-
-    .cards,
-    #skills .cards,
-    #extracurriculars .cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .navbar {
-        min-height: 75px;
-        padding: 12px 15px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        gap: 8px 15px;
-    }
-
-    .nav-links a {
-        font-size: 10px;
-        letter-spacing: 0.7px;
-        padding: 5px 0;
-    }
-
-    .nav-links a::after {
-        bottom: 0;
-    }
-
-    .hero {
-        padding: 125px 20px 70px;
-    }
-
-    .hero-container {
-        gap: 45px;
-    }
-
-    .hero-content h1 {
-        font-size: 4rem;
-    }
-
-    .portfolio-label {
-        font-size: 12px;
-        letter-spacing: 4px;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-    }
-
-    .hero-photo {
-        width: 250px;
-        height: 250px;
-    }
-
-    .hero-photo-wrapper::before {
-        width: 280px;
-        height: 280px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .hero-btn {
-        width: 210px;
-    }
-
-    .section {
-        padding: 75px 0;
-    }
-
-    .section h2 {
-        font-size: 2.2rem;
-    }
-
-    .football-content p {
-        font-size: 1rem;
-    }
-}
-
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 450px) {
-
-    .nav-links {
-        gap: 7px 10px;
-    }
-
-    .nav-links a {
-        font-size: 9px;
-    }
-
-    .hero-content h1 {
-        font-size: 3.4rem;
-    }
-
-    .hero-photo {
-        width: 220px;
-        height: 220px;
-    }
-
-    .hero-photo-wrapper::before {
-        width: 245px;
-        height: 245px;
-    }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hud Ansari's student athlete portfolio, showcasing football, academics, leadership, and skills.">
+    <title>Hud Ansari | Student Athlete</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --burgundy: #541c2b;
+            --accent: #8b1937;
+            --cream: #f6ead7;
+            --gold: #e2c579;
+            --text: #332b2b;
+            --white: #fffaf2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--burgundy);
+            padding: 14px 5%;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 65px 20px;
+            background:
+                linear-gradient(rgba(40, 12, 21, 0.83), rgba(40, 12, 21, 0.88)),
+                url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85')
+                center/cover no-repeat;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-photo {
+            width: 175px;
+            height: 175px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 5px solid var(--gold);
+            margin-bottom: 22px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.7rem, 7vw, 4.5rem);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            color: var(--gold);
+            font-size: clamp(1.15rem, 3vw, 1.6rem);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            font-size: 1.05rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary {
+            background: var(--gold);
+            color: var(--burgundy);
+        }
+
+        .primary:hover {
+            background: #efd999;
+        }
+
+        /* General Sections */
+        .section {
+            padding: 75px 0;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--burgundy);
+            font-size: clamp(2rem, 5vw, 2.7rem);
+            margin-bottom: 28px;
+        }
+
+        .section p {
+            font-size: 1rem;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Academic Profile */
+        .academic-content {
+            max-width: 850px;
+            margin: 35px auto 0;
+            text-align: left;
+        }
+
+        .academic-item {
+            background: var(--white);
+            padding: 25px;
+            margin-bottom: 22px;
+            border-left: 5px solid var(--accent);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .academic-item h3 {
+            color: var(--burgundy);
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .academic-item p {
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .academic-sub-item {
+            margin: 20px 0 0 18px;
+            padding-left: 18px;
+            border-left: 2px solid var(--gold);
+        }
+
+        .academic-sub-item h4 {
+            color: var(--accent);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        /* Football */
+        .football-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--white);
+            padding: 32px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .football-content p {
+            margin-bottom: 24px;
+        }
+
+        .highlights-btn {
+            margin-top: 5px;
+        }
+
+        /* Extracurriculars */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            border-bottom: 4px solid var(--gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            color: var(--burgundy);
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            color: #514747;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill {
+            background: var(--burgundy);
+            color: white;
+            padding: 17px 14px;
+            text-align: center;
+            border-radius: 7px;
+            font-weight: 600;
+        }
+
+        /* Contact */
+        .contact {
+            background: #efe0cb;
+        }
+
+        .contact .container {
+            max-width: 750px;
+        }
+
+        .contact p {
+            margin: 14px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact a {
+            color: var(--accent);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--burgundy);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 760px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 4%;
+            }
+
+            .nav-links {
+                gap: 8px 16px;
+            }
+
+            .nav-links a {
+                font-size: 0.88rem;
+            }
+
+            .hero-photo {
+                width: 145px;
+                height: 145px;
+            }
+
+            .academic-item,
+            .football-content,
+            .card {
+                padding: 20px;
+            }
+
+            .academic-sub-item {
+                margin-left: 8px;
+                padding-left: 12px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+    <!-- Navigation -->
+    <nav aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#football">Football</a></li>
+            <li><a href="#extracurriculars">Extracurriculars</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<header>
-<nav class="navbar" aria-label="Main navigation">
-<ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#academics">Academics</a></li>
-    <li><a href="#football">Football</a></li>
-    <li><a href="#extracurriculars">Extracurriculars</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-content">
 
-<main>
+            <img
+                src="hud-photo.jpeg"
+                alt="Hud Ansari"
+                class="hero-photo"
+            >
 
-<!-- =========================
-     HOME / HERO
-========================= -->
+            <h1>Hud Ansari</h1>
 
-<section id="home" class="hero">
-<div class="hero-container">
+            <h2>Football Player | Student Athlete</h2>
 
-    <div class="hero-content">
-
-        <div class="portfolio-label">Portfolio</div>
-
-        <h1>
-            Hud
-            <span>Ansari</span>
-        </h1>
-
-        <p class="hero-subtitle">
-            Football Enthusiast | Aspiring Sports Management Professional
-        </p>
-
-        <p class="hero-description">
-            Passionate about football, the sports industry, and building a future where sport and business come together.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#about" class="hero-btn primary">Explore My Journey</a>
-            <a href="#about" class="hero-btn secondary">About Me</a>
-            <a href="#contact" class="hero-btn">Contact Me</a>
-        </div>
-
-    </div>
-
-    <!-- Original profile photo -->
-    <div class="hero-photo-wrapper">
-        <img
-            src="hud-photo.jpeg"
-            alt="Hud Ansari"
-            class="hero-photo"
-        >
-    </div>
-
-</div>
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section id="about" class="section">
-<div class="container">
-
-    <h2>About Me</h2>
-
-    <p>
-        Hi, I’m Hud Ansari, a passionate student-athlete with a deep love for football and a strong interest in the sports industry. My ambition is to pursue a career in Sports Management while continuing to develop as a football player. Through years of playing football, I have developed discipline, teamwork, leadership, resilience, and the ability to perform under pressure. These experiences have shaped me both on and off the field.
-    </p>
-
-    <p>
-        I aim to combine my experience as an athlete with business and management skills to build a meaningful career and contribute to the growth of the sports industry.
-    </p>
-
-</div>
-</section>
-
-
-<!-- =========================
-     ACADEMICS
-========================= -->
-
-<section id="academics" class="section">
-<div class="container">
-
-    <h2>Academics</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Education</h3>
             <p>
-                High school student focused on academic excellence while balancing athletic commitments.
+                Aspiring to pursue Sports Management while continuing my
+                journey in football, developing my leadership, teamwork,
+                and strategic thinking both on and off the field.
             </p>
+
+            <a href="#about" class="hero-btn primary">
+                Explore My Profile
+            </a>
+
         </div>
+    </header>
 
-        <div class="card">
-            <h3>Areas of Interest</h3>
-            <p>
-                Sports Management, Business, Leadership, Marketing, and Athlete Development.
-            </p>
-        </div>
+    <main>
 
-        <div class="card">
-            <h3>Future Goal</h3>
-            <p>
-                To study Sports Management at university and contribute to the sports industry while staying involved in football.
-            </p>
-        </div>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
 
-    </div>
+                <h2>About Me</h2>
 
-</div>
-</section>
+                <div class="about-content">
+                    <p>
+                        I am a student athlete passionate about football,
+                        leadership, and personal growth. As a Centre Midfielder
+                        and Team Captain, I value teamwork, discipline, and
+                        strategic thinking. My goal is to pursue Sports
+                        Management while continuing to develop as a footballer
+                        and contribute to the world of sports.
+                    </p>
+                </div>
 
+            </div>
+        </section>
 
-<!-- =========================
-     FOOTBALL
-========================= -->
+        <!-- Academic Profile Section -->
+        <section id="academics" class="section">
+            <div class="container">
 
-<section id="football" class="section">
-<div class="container">
+                <h2>Academic Profile</h2>
 
-    <h2>Football</h2>
+                <div class="academic-content">
 
-    <div class="football-content">
+                    <!-- Main Point: Student Council Member -->
+                    <div class="academic-item">
 
-        <p>
-            As a <strong>Centre Midfielder and Team Captain</strong>, I’ve led my team to multiple victories, combining leadership, strategy, and athletic skill. Football has taught me discipline, teamwork, and resilience.
-        </p>
+                        <h3>Student Council Member</h3>
 
-        <a
-            href="https://drive.google.com/file/d/1Jh0iSae_MagCKMUsKw3190d8x4LXTDig/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hero-btn primary highlights-btn"
-        >
-            Watch My Highlights
-        </a>
+                        <p>
+                            Part of the Student Council from the past three
+                            consecutive years.
+                        </p>
 
-    </div>
+                        <!-- Sub-point: Sports Captain -->
+                        <div class="academic-sub-item">
 
-</div>
-</section>
+                            <h4>Sports Captain (2024–25)</h4>
 
+                            <p>
+                                Served as Sports Captain, helped organize
+                                school events, student activities, and
+                                leadership initiatives.
+                            </p>
 
-<!-- =========================
-     EXTRACURRICULARS
-========================= -->
+                        </div>
 
-<section id="extracurriculars" class="section">
-<div class="container">
+                        <!-- Sub-point: House Captain -->
+                        <div class="academic-sub-item">
 
-    <h2>Extracurriculars</h2>
+                            <h4>House Captain (2025–26 &amp; 2026–27)</h4>
 
-    <div class="cards">
+                            <p>
+                                Serving as House Captain, helping organize
+                                school events, student activities, and
+                                leadership initiatives.
+                            </p>
 
-        <div class="card">
-            <h3>Leadership</h3>
-            <p>
-                Developing leadership and decision-making skills through team responsibilities and collaboration.
-            </p>
-        </div>
+                        </div>
 
-        <div class="card">
-            <h3>Team Activities</h3>
-            <p>
-                Taking part in group activities that encourage communication, cooperation, and shared goals.
-            </p>
-        </div>
+                    </div>
 
-        <div class="card">
-            <h3>Personal Development</h3>
-            <p>
-                Building discipline, time management, and confidence while balancing academics and sports.
-            </p>
-        </div>
+                    <!-- Main Point: Favourite Subject -->
+                    <div class="academic-item">
 
-    </div>
+                        <h3>Favourite Subject</h3>
 
-</div>
-</section>
+                        <p>Sports Economics, History</p>
 
+                    </div>
 
-<!-- =========================
-     SKILLS
-========================= -->
+                </div>
+            </div>
+        </section>
 
-<section id="skills" class="section">
-<div class="container">
+        <!-- Football Section -->
+        <section id="football" class="section">
+            <div class="container">
 
-    <h2>Skills</h2>
+                <h2>Football</h2>
 
-    <div class="cards">
+                <div class="football-content">
 
-        <div class="card">
-            <h3>Analytical Thinking</h3>
-        </div>
+                    <p>
+                        As a <strong>Centre Midfielder and Team Captain</strong>,
+                        I’ve led my team to multiple victories, combining
+                        leadership, strategy, and athletic skill. Football
+                        has taught me discipline, teamwork, and resilience.
+                    </p>
 
-        <div class="card">
-            <h3>Leadership</h3>
-        </div>
+                    <a
+                        href="https://drive.google.com/file/d/1Jh0iSae_MagCKMUsKw3190d8x4LXTDig/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hero-btn primary highlights-btn"
+                    >
+                        Watch My Highlights
+                    </a>
 
-        <div class="card">
-            <h3>Teamwork</h3>
-        </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <h3>Quick Computer Learning</h3>
-        </div>
+        <!-- Extracurriculars Section -->
+        <section id="extracurriculars" class="section">
+            <div class="container">
 
-        <div class="card">
-            <h3>Data Analysis</h3>
-        </div>
+                <h2>Extracurriculars</h2>
 
-    </div>
+                <div class="cards">
 
-</div>
-</section>
+                    <article class="card">
+                        <h3>Leadership</h3>
 
+                        <p>
+                            Developing leadership and decision-making skills
+                            through team responsibilities and collaboration.
+                        </p>
+                    </article>
 
-<!-- =========================
-     CONTACT
-========================= -->
+                    <article class="card">
+                        <h3>Team Activities</h3>
 
-<section id="contact" class="section contact">
-<div class="container">
+                        <p>
+                            Taking part in group activities that encourage
+                            communication, cooperation, and shared goals.
+                        </p>
+                    </article>
 
-    <h2>Contact</h2>
+                    <article class="card">
+                        <h3>Personal Development</h3>
 
-    <p>
-        <strong>Email:</strong>
-        <a href="mailto:hud.ansari@corvuss.in">hud.ansari@corvuss.in</a>
-    </p>
+                        <p>
+                            Building discipline, time management, and
+                            confidence while balancing academics and sports.
+                        </p>
+                    </article>
 
-    <p>
-        <strong>Phone:</strong>
-        <a href="tel:+919372942495">+91 9372942495</a>
-    </p>
+                </div>
+            </div>
+        </section>
 
-    <p>
-        <strong>Location:</strong>
-        Maharashtra, India
-    </p>
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
 
-</div>
-</section>
+                <h2>Skills</h2>
 
-</main>
+                <div class="skills-grid">
+                    <div class="skill">Analytical Thinking</div>
+                    <div class="skill">Leadership</div>
+                    <div class="skill">Teamwork</div>
+                    <div class="skill">Quick Computer Learning</div>
+                    <div class="skill">Data Analysis</div>
+                </div>
 
+            </div>
+        </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
 
-<footer>
-    <p>© 2026 Hud Ansari | Student Athlete Portfolio</p>
-</footer>
+                <h2>Contact</h2>
+
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:hud.ansari@corvuss.in">
+                        hud.ansari@corvuss.in
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <a href="tel:+919372942495">
+                        +91 9372942495
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Location:</strong> Maharashtra, India
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Hud Ansari | Student Athlete Portfolio</p>
+    </footer>
 
 </body>
 </html>
